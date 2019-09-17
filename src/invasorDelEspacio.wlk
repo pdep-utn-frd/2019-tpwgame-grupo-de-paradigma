@@ -83,7 +83,7 @@ object invasorDelEspacio {
 
 //OBJETO JUGADOR:
 object nave {
-	var image = "nave.png"
+	var property image = "nave.png"
 	var property vidas = 3
 	var property position = game.at(4,1)
 	
@@ -107,7 +107,7 @@ object nave {
 	
 	method chocarCon(invader) {
 
-		vidas--
+		vidas = vidas -1
 		
 		invasorDelEspacio.eliminarVidas()
 		
@@ -135,7 +135,7 @@ class Invader {
 	}	
 	
 	method muerte() {
-			vidas --
+			vidas = vidas - 1
 			game.removeVisual(self)
 			game.removeTickEvent("moverse")
 			game.sound("RipInvader.mp3")
@@ -143,9 +143,9 @@ class Invader {
 	
 	method image() = "invader" + numero.toString() + ".png"
 
-	method movimiento() {
-		game.onTick(2000, "mov", {position.x(1) position.x(-1) position.y(-1)})
-	}
+//	method movimiento() {
+//		game.onTick(2000, "mov", {position.x(1) position.x(-1) position.y(-1)})
+//	}
 
 	method acercarseA(personaje) {
 		var otroPosicion = personaje.position()
@@ -181,7 +181,7 @@ class Invader {
 
 //OBJETO MUNICION DEL JUGADOR:
 object bala {
-	var image = "disparo.png"
+	var property image = "disparo.png"
 	var property position = nave.position().up(1)
 	
 	method disparar() {
