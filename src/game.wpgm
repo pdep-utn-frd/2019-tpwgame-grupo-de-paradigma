@@ -1,0 +1,13 @@
+import wollok.game.* 
+import level.*
+
+program SpaceInvader {
+	game.title("Space Invader")
+	game.height(9)
+	game.width(9)
+	game.boardGround("fondo.png")
+
+	nivel.cargar()
+	
+	game.start()
+}
